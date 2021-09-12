@@ -1,0 +1,388 @@
+
+/* Typographie */
+body {
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+/* Layout */
+
+.container {
+    max-width: 596rem;
+    width: 100%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+#search-music-form {
+    display: grid;
+    grid-template-columns: 1fr 20rem 20rem;
+    gap: 1rem;
+}
+
+#search-field {
+    width: 100%;
+    position: relative;
+}
+
+.close-icon {
+	border:1px solid transparent;
+	background-color: transparent;
+	display: inline-block;
+	vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+}
+
+.close-icon:after {
+	content: "X";
+	display: block;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	background-color: grey;
+	right: 47rem;
+	top: -53rem;
+	bottom: 0;
+	margin: auto;
+	padding: 0;
+	border-radius: 50%;
+	text-align: center;
+	color: white;
+	font-weight: normal;
+	font-size: 12px;
+	box-shadow: 0 0 2px grey;
+	cursor: pointer;
+}
+
+#search-field:not(:valid) ~ .close-icon {
+	display: none;
+}
+
+#search-option {
+    width: 100%;
+    height: 3rem;
+}
+
+#search-btn {
+  height: 3rem;
+}
+
+#totalCount, #user-input-value {
+  padding-bottom: 1rem;
+}
+
+.menu-display {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+
+}
+
+.hide-btn, .hide-loader, .hide-table {
+  display: none;
+}
+.display-btn {
+  display: block;
+}
+.display-results-header {
+  display: inline;
+}
+.display-table {
+  display: table;
+}
+
+.display-loader {
+  display: flex;
+  justify-content: center;
+}
+
+/* Table */
+
+table {
+  display: table;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.more-info-button {
+  width: 8rem;
+  height: 3rem;
+}
+
+/* Modal  */
+
+.overlap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.overlap[hidden] {
+  display: none;
+}
+#modal {
+  position: relative;
+  border-radius: 0.5em;
+  min-width: 50%;
+  max-width: 60%;
+  min-height: 90%;
+  max-height: 95%;
+  padding: 2rem;
+  overflow: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+.btn-modal{
+  width: 7rem;
+  height: 3rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  border-radius: 0.7em;
+  background-color: #fff;
+}
+
+.modal-title {
+  padding-bottom: 2rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.modal-content {
+  font-weight: normal;
+  line-height: 3rem;
+  padding: 1em;
+  pointer-events: all;
+  overflow: auto;
+  list-style: none;
+
+}
+
+.cover-art-wrapper {
+  margin-top: 2rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.coverImg {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+/**
+ * ==============================================
+ * Dot Pulse
+ * ==============================================
+ */
+
+.loader {
+  display: none;
+}
+
+ .dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  box-shadow: 9999px 0 0 -5px #9880ff;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: .25s;
+}
+
+.dot-pulse::before, .dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+}
+
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px #9880ff;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px #9880ff;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: .5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px #9880ff;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px #9880ff;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px #9880ff;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px #9880ff;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px #9880ff;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px #9880ff;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px #9880ff;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px #9880ff;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px #9880ff;
+  }
+}
+
+.side-component {
+    padding-left: 4rem;
+    padding-top: 2rem;
+
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: grey; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+} 
+
+/* .menu-display {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style: none;
+    border: 1px solid black;
+} */
+
+
+
+
+/* Navigation */
+/* .toggle-menu {
+    padding: 0.25rem 1rem;
+    color: var(--inverted);
+    background-color: rgba(0,0,0,.15);
+    border: 0;
+    border-radius: 2rem;
+    transition: .3s;
+}
+
+.toggle-menu:hover,
+.toggle-menu:focus {
+    background-color: rgba(0,0,0,.35);
+}
+
+
+.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--accent);
+    transition: .5s;
+}
+
+.menu[hidden] {
+    display: block;
+    visibility: hidden;
+    transform: translateX(-100%);
+}
+
+.menu:not([hidden]) {
+    transform: translateX(0);
+}
+
+.menu-link {
+    display: block;
+    padding: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+    background-color: rgba(0,0,0,.25);
+}
+
+@media screen and (min-width: 36em) { 
+    .toggle-menu {
+        display: none;
+    }
+
+    .menu,
+    .menu[hidden] {
+        display: flex;
+        visibility: visible;
+        position: static;
+        transform: translateX(0);
+    }
+} */

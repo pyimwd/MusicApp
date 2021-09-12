@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music App</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <div class="overlap" hidden>
+        <div id="modal">
+            <h2 class="modal-title"></h2>
+            <button class="btn-modal">Close</button>
+            <div class="modal-content"></div>
+            <div class="modal-cover"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <h1 class="site-title">My Music App</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-bar">
+
+            <div class="container">
+                <form id="search-music-form">
+
+                    <div class="search-field">
+                        <label for="search-field"></label>
+                        <input name='name' type="text" id="search-field"
+                            placeholder="Entrez votre recherche (artiste / titre / album...)">
+                        <button class="close-icon" type="reset"></button>
+                    </div>
+                    <div class="search-option">
+                        <label for="search-option"></label>
+                        <select name="search-option" id="search-option">
+                            <option value="Tous">Tous</option>
+                            <option value="Artiste">Artiste</option>
+                            <option value="Titre">Titre</option>
+                            <option value="Album">Album</option>
+                        </select>
+                    </div>
+                    <input type="submit" id="search-btn" value="Rechercher">
+                </form>
+                <div id="totalCount"></div>
+                <div id="user-input-value"></div>
+            </div>
+        </section>
+
+        <section class="display-search-result" id="display-search-result">
+            <div class="container">
+                <table id="results-table" class="hide-table">
+                    <thead>
+                        <tr id="results-table-header">
+                            <th class="row">#</th>
+                            <th class="row">Artist</th>
+                            <th class="row">Title</th>
+                            <th class="row">Release</th>
+                            <th class="row">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body"></tbody>
+                </table>
+            </div>
+
+        </section>
+        <div class="side-component">
+            <div class="hide-loader" id="loader">
+                <div class="snippet" data-title=".dot-pulse">
+                    <div class="stage">
+                        <div class="dot-pulse"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="hide-btn" id="nextResults">Next Results</button>
+
+        </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/modal.js"></script>
+
+</body>
+
+</html>
